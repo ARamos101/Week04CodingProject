@@ -1,4 +1,3 @@
- 
 package week04;
 
 public class Week04CodingProject {
@@ -6,17 +5,21 @@ public class Week04CodingProject {
 	public static void main(String[] args) {	//PART 1 - 6 MAIN BODY
 	//PART 1
 	
-	int[] ages = {3, 9, 23, 64, 2, 8, 28, 93};//array with 8 elements
-	int[] ages2 = {1, 2, 3, 4, 5, 6, 7, 8, 9};//array with 9 elements thats longer than the ages array.
+	int[] ages = {3, 9, 23, 64, 2, 8, 28, 93};
+	int[] ages2 = {1, 2, 3, 4, 5, 6, 7, 8, 9};
 
 	System.out.println("The age range is " + (ages[ages.length - 1] - ages[0]));
 	System.out.println("The age2 range is " + (ages2[ages2.length - 1] - ages2[0]));
 
+	/*No matter what, index 0 will always be the first element in the array and if you do the full 
+	length of the array -1 then it will always be the last element of the array, and you have to 
+	subtract 1 because arrays start at 0 and count up.*/
+
 	int ageSum = 0;
 	for (int i = 0; i < ages.length; i++) {
-	ageSum += ages[i];//iterates through the array adding each index to "ageSum"
+	ageSum += ages[i];
 	}
-	System.out.println("The average age is " + (double)ageSum / ages.length);//formula for calculating averages
+	System.out.println("The average age is " + (double)ageSum / ages.length);
 	
 
 	//PART 2
@@ -28,8 +31,8 @@ public class Week04CodingProject {
 	double averageLetters = (double)sumLetters / names.length;
 	System.out.println("The average amount of letters in each name is " + averageLetters);
 
-	String concat = "";//Initialized with just quotes so that it's "empty".
-	for (int i = 0; i < names.length; i++) {//for loop iterates through indexes concatenating all of them separated with a space.
+	String concat = "";
+	for (int i = 0; i < names.length; i++) {
 	concat += names[i] + " ";
 	}
 	System.out.println(concat.trim());	//.trim()removes extra space at the end
@@ -49,7 +52,7 @@ public class Week04CodingProject {
 	
 	//PART 6
 	int nameLengthSum = 0;
-	for (int i = 0; i < nameLengths.length; i++) {//gives the total amount of letters
+	for (int i = 0; i < nameLengths.length; i++) {
 	nameLengthSum += nameLengths[i];
 	}
 	System.out.println("The sum of all the names is " + nameLengthSum);
@@ -64,59 +67,58 @@ public class Week04CodingProject {
 	}
 	return result.toString();
 }
+/*
 	//PART 8
-	public static String fullName(String firstName, String lastName) {
-	return firstName + " " + lastName;
+	Public String name(String firstName, String lastName) {
+	System.out.println(firstName + “ “ + lastName);
 	}
 
 	//PART 9
-	public static boolean sumIntsGreaterThan100(int[] array) {
-	int sumInts = 0;
-	for (int i = 0; i < array.length; i++) {//adds all array indexes to sumInts
-	sumInts += array[i];
+	Public boolean sum(int[] array) {
+	int sum = 0;
+	for (int i = 0; i < array.length; i++) {
+	sum = array[i] + sum;
 	}
-	return sumInts > 100;//if the total sum is > 100 it returns true
+	return (sum > 100);
 	}
 
 	//PART 10
-	public static double avgElements(double[] array) {
-	double sumElements = 0;
-	for (int i = 0; i < array.length; i++) {
-	sumElements += array[i];
+	Public double avgElements(double[] array) {
+	double sum = 0;
+	for (int I = 0; i < array.length; i++) {
+	sum = array[i]  + sum;
 	}
-	return sumElements / array.length;
-	}
+	Return (sum / array.length);
 
 	//PART 11
-	public static Boolean compAvg(double[] firstArray, double[] secondArray) {
-	double sum1 = 0, sum2 = 0;
-	
-	for (int i = 0; i < firstArray.length; i++) {//iterates through array1 adding every index to sum1
-	sum1 += firstArray[i];
+	Public Boolean compAvg(double[] firstArray, double[] secondArray) {
+	double sum = 0;
+	double avgElements;
+	for (int I = 0; i < firstArray.length; i++) {
+	sum = firstArray[i]  + sum;
 	}
-	for (int i = 0; i < secondArray.length; i++) {//iterates through array2 adding every index to sum2
-	sum2 += secondArray[i];
-	}
-	
-	double avgElements1 = sum1 / firstArray.length;
-	double avgElements2 = sum2 / secondArray.length;
+	avgElements = sum / firstArray.length;
 
-	return avgElements1 > avgElements2;//outputs true if avgE1 is greater than avgE2
+	double sum2 = 0;
+	double avgElements2;
+	for (int I = 0; i < secondArray.length; i++) {
+	sum2 = secondArray[i]  + sum2;
 	}
-	
+	avgElements2 = sum2 / secondArray.length;
+
+	return (avgElements > avgElements2);
+	}
 	//PART 12
-	public static boolean willBuyDrink(boolean isHotOutside, double moneyInPocket) {
-	return isHotOutside && moneyInPocket > 10.50;
-	}
+	Public boolean willBuyDrink(boolean isHotOutside, double moneyInPocket) {
+	return (isHotOutside && (moneyInPocket > 10.50));
 
 	//PART 13
-	public static Boolean alarmClock(int currentTime, int exhaustion, int levelOfCare) {
-		return currentTime >= 700 && exhaustion <= 6 && levelOfCare >=4;
-	}
+	Public Boolean alarmClock(double currentTime, int exhaustion, int levelOfCare) {
+	return ((timeToWakeUp >= currentTime) && (exhaustion <= 6) && (levelOfCare >=4));
 
-	//PART 13 METHOD EXPLAINED:
+
 	/*Exhaustion will be 1 – 10
-	TimeToWakeUp will be > or == to desired wake up time, functioning as a 24 hour clock
+	TimeToWakeUp will be > or == to desired wake up time
 	levelOfCare will also be on a 1 – 10 scale based on user input.
 	This method helps determine if the user should turn their alarm clock off and wake up and get ready for their day. It will return true if they should turn it off and start their day, it will return false if they shouldn’t and should just go back to sleep.
 	I created it because I had somebody tell me what a problem of theirs was and this is what they told me so this is what I made a method for.
